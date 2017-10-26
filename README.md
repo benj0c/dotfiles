@@ -26,7 +26,7 @@ sudo apt-get install git make
 ```
 
 ```bash
-git clone https://github.com/rastasheep/dotfiles.git ~/.dotfiles
+git clone https://github.com/benj0c/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 make linux # or mac
 ```
@@ -48,7 +48,7 @@ If you want to run installation process from automated script like vagrant shell
 provisioner, without interactive shell you can pass arguments like:
 
 ```bash
-git_authorname=rastasheep git_authoremail=rastasheep3@gmail.com existing_files=O make -C ~/.dotfiles linux
+git_authorname=<your-github-username> git_authoremail=<your-email-address> existing_files=0 make -C ~/.dotfiles linux
 ```
 
 Available options are optional:
