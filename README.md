@@ -1,4 +1,4 @@
-# rastasheep does dotfiles, holman style
+# benj0c does dotfiles, based on rastasheep dotfiles, holman style
 
 ## dotfiles
 
@@ -103,7 +103,7 @@ said, I do use this as *my* dotfiles, so there's a good chance I may break
 something if I forget to make a check for a dependency.
 
 If you're brand-new to the project and run into any blockers, please
-[open an issue](https://github.com/rastasheep/dotfiles/issues) on this repository
+[open an issue](https://github.com/benj0c/dotfiles/issues) on this repository
 and I'd love to get it fixed for you!
 
 ## thanks
