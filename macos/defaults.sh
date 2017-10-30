@@ -17,7 +17,7 @@ defaults write com.apple.Finder FXPreferredViewStyle clmv
 defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Set a really short delay until key repeat.
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Set the Finder prefs for not showing a volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
@@ -39,9 +39,6 @@ defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 # Set sidebar icon size to small
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
-
-# Set highlight color to green
-defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -83,23 +80,17 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
-# Set the Dock orientation to left
-defaults write com.apple.dock orientation -string "left"
+# Set the Dock orientation to bottom
+defaults write com.apple.dock orientation -string "bottom"
 
-# Set the icon size of Dock items to 28 pixels
-defaults write com.apple.dock tilesize -int 28
+# Set the icon size of Dock items to 42 pixels
+defaults write com.apple.dock tilesize -int 42
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
-
-# Enable time announcement
-defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add "TimeAnnouncementsEnabled" -bool true
-
-## Announce the time => On the hour
-defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add "TimeAnnouncementsIntervalIdentifier" -string "EveryHourInterval"
 
 permament_dock() {
   defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$1</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
