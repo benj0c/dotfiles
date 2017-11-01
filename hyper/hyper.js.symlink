@@ -14,7 +14,7 @@ const base16 = {
   '08': '#bf616a',
   '09': '#d08770',
   '0A': '#ebcb8b',
-  '0B': '#a3be8c',
+  '0B': '#92ce5f',
   '0C': '#96b5b4',
   '0D': '#8fa1b3',
   '0E': '#b48ead',
@@ -24,7 +24,7 @@ const base16 = {
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 14,
+fontSize: 14,
 
     // font family with optional fallbacks
     fontFamily: '"Source Code Pro", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
@@ -40,7 +40,7 @@ module.exports = {
 
     // terminal background color
     // backgroundColor: base16['00'],
-    backgroundColor: 'rgba(43, 48, 59, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
 
     // border color (window, tabs)
     borderColor: 'transparent',
