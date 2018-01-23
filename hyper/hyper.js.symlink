@@ -40,7 +40,7 @@ fontSize: 14,
 
     // terminal background color
     // backgroundColor: base16['00'],
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
 
     // border color (window, tabs)
     borderColor: 'transparent',
