@@ -143,12 +143,12 @@ defaults write org.m0k.transmission BlocklistNew -bool true
 defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
 defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 
-## Atom
+## VS Code
 
 # Mac OS X Lion introduced a new, iOS-like context menu when you press and hold a key
 # that enables you to choose a character from a menu of options.
-# It's a nightmare to deal with in Atom if you're running vim mode, disable it only for Atom.
-defaults write com.github.atom ApplePressAndHoldEnabled -bool false
+# It's a nightmare to deal with in VS Code if you're running vim mode, disable it only for VS Code.
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 # Uncomment if you want this feature disabled globally
 # defaults write -g ApplePressAndHoldEnabled -bool false
