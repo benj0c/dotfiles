@@ -100,8 +100,6 @@ permament_dock() {
 defaults write com.apple.dock persistent-apps -array ''
 
 permament_dock "/Applications/Google Chrome.app/"
-permament_dock "/Applications/Google Chrome Canary.app/"
-permament_dock "/Applications/Spotify.app/"
 permament_dock "/Applications/Hyper.app/"
 
 # Disable Dashboard
