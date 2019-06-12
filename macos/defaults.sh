@@ -101,6 +101,7 @@ defaults write com.apple.dock persistent-apps -array ''
 
 permament_dock "/Applications/Google Chrome.app/"
 permament_dock "/Applications/Hyper.app/"
+permament_dock "/Applications/Visual Studio Code.app/"
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
