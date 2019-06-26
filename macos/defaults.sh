@@ -106,6 +106,11 @@ permament_dock "/Applications/Visual Studio Code.app/"
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
+# Disable Siri
+defaults write com.apple.Siri StatusMenuVisible -bool false
+defaults write com.apple.Siri UserHasDeclinedEnable -bool true
+defaults write com.apple.assistant.support 'Assistant Enabled' 0
+
 # Don’t show Dashboard as a Space
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
