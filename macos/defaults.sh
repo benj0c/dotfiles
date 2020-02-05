@@ -154,8 +154,5 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 # It's a nightmare to deal with in VS Code if you're running vim mode, disable it only for VS Code.
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
-# Disable also for hyper terminal
-defaults write co.zeit.hyper ApplePressAndHoldEnabled -bool false
-
 # Uncomment if you want this feature disabled globally
 # defaults write -g ApplePressAndHoldEnabled -bool false
