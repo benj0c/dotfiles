@@ -1,8 +1,7 @@
 tap 'homebrew/bundle'
-tap 'caskroom/cask'
-
-tap 'caskroom/fonts'
-tap 'caskroom/versions'
+tap 'homebrew/cask-cask'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
 tap 'homebrew/core'
 tap 'neovim/neovim'
 
