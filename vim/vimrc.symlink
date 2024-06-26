@@ -23,11 +23,13 @@ Plug 'tpope/vim-rails'
 Plug 'renderedtext/vim-bdd'
 Plug 'gregsexton/MatchTag', { 'for': 'html' } " match tags in html, similar to paren support
 Plug 'Quramy/tsuquyomi'
-  Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
+
+Plug 'github/copilot.vim'
 
 call plug#end()
 

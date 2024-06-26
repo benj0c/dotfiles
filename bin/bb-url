@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+#/
+#/ Usage: bb-url [<path>[:<line>]]
+#/
+#/ Make a bitbucket.org URL using the current repository's remote URLs to
+#/ determine location. When <path> is given, append it to the generated URL.
+set -e
+
+# Usage message
+usage() {
+  grep ^#/ "$0" | cut -c4-
+  exit
+}
+
+if [ "$1" == "--help" -o "$1" == '-h' ]; then usage; fi
+
+# The http URL to the git repository on bitbucket.org.
+url=
+
+params=(${1//:/ })
+
+# Run through all remotes looking for a bitbucket repository. Bail when found.
+remotes="origin $(git remote)"
+for remote in $remotes;
+do
+  git_url="$(git config remote."$remote".url || true)"
+  case "$git_url" in
+    https://bitbucket.org/*)
+      url="$git_url"
+      break
+      ;;
+    git@bitbucket.org:*)
+      url=${git_url//git@bitbucket.org:/https:\/\/bitbucket.org\/}
+      break
+      ;;
+    git://bitbucket.org/*)
+      url=${git_url//git:\/\/bitbucket.org\//https:\/\/bitbucket.org\/}
+      break
+      ;;
+  esac
+done
+
+# No bitbucket.org remotes exists. Death.
+if [ -z "$url" ]; then
+  echo "error: no bitbucket.org git remotes found" 1>&2
+  exit 1
+fi
+
+# Axe the .git suffix if there is one. Remove trailing slashes.
+url="${url/%.git/}"
+url="${url/%\//}"
+
+# When given a path, append it to the url. Be smart about it,
+# append the part that is inside the current git repository.
+# If line number is present, add it to file url.
+
+path=${params[0]}
+line=${params[1]}
+
+# Transform path to full path
+if [[ $path == /* ]]; then
+  full_path="$path"
+else
+  full_path="$(pwd -P)/$path"
+fi
+
+# Ignore non existing paths
+if [ ! -e "$full_path" ]; then
+  full_path=""
+fi
+
+branch=$(git branch | sed -n '/\* /s///p')
+
+# Function to find the root directory of the parent Git repository
+find_parent_git_root() {
+  local current_dir="$(pwd -P)"
+  while [ "$current_dir" != "/" ]; do
+    if [ -f "$current_dir/.git" ]; then
+      echo "$current_dir"
+      return
+    fi
+    current_dir="$(dirname "$current_dir")"
+  done
+  echo ""  # Return empty string if not found
+}
+
+if [ -n "$full_path" ]; then
+  gitdir=$(find_parent_git_root)
+  workdir=$(cd "$gitdir" && pwd -P)
+  path=${full_path/#$workdir\//}
+
+  if [ -z "$line" ]
+  then
+    echo "$url/src/$branch/$path"
+  else
+    echo "$url/src/$branch/$path#lines-$line"
+  fi
+else
+  echo "$url/src/$branch"
+fi
