@@ -78,6 +78,9 @@ vim.keymap.set('n', '<leader>\\', ':vs<CR>', { silent = true })
 vim.keymap.set('n', '<leader>-', ':split<CR>', { silent = true })
 vim.keymap.set('n', '<leader>1', ':e ~/.vimrc<CR>', { silent = true })
 
+vim.api.nvim_create_user_command('SearchFilesInfo', 'echo "Use \\<leader\\>sf for search files."', {})
+vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>SearchFilesInfo<CR>', { noremap = true, silent = true })
+
 vim.keymap.set('n', '<leader>w', ':wa<CR>', { silent = true })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
