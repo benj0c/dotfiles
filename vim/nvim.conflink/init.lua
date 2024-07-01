@@ -138,6 +138,8 @@ require('lazy').setup({
   --  amazing git wrapper for vim
   'tpope/vim-fugitive',
 
+  'github/copilot.vim',
+
   {
     'mileszs/ack.vim',
     config = function()
