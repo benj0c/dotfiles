@@ -1,6 +1,3 @@
-tap 'homebrew/bundle'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
 tap 'neovim/neovim'
 
 brew 'autoconf'
