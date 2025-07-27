@@ -71,9 +71,22 @@ fi
 
 branch=$(git branch | sed -n '/\* /s///p')
 
+# Function to find the root directory of the parent Git repository
+find_parent_git_root() {
+  local current_dir="$(pwd -P)"
+  while [ "$current_dir" != "/" ]; do
+    if [ -f "$current_dir/.git" ]; then
+      echo "$current_dir"
+      return
+    fi
+    current_dir="$(dirname "$current_dir")"
+  done
+  echo ""  # Return empty string if not found
+}
+
 if [ -n "$full_path" ]; then
-  gitdir=$(git rev-parse --git-dir)
-  workdir=$(cd "$gitdir"/.. && pwd -P)
+  gitdir=$(find_parent_git_root)
+  workdir=$(cd "$gitdir" && pwd -P)
   path=${full_path/#$workdir\//}
 
   if [ -z "$line" ]
